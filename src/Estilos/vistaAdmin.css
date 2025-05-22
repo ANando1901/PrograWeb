@@ -1,0 +1,10 @@
+body {
+    background-color: #1b1b2f;
+    color: #ffcc00;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h1, h2, h3 {
+    color: #ff00ff;
+    text-shadow: 2px 2px #000;
+}
