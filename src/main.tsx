@@ -13,6 +13,7 @@ import Compras from "./Paginas/Compras"
 import Carrito from "./Paginas/Carrito"
 import Usuario from "./Paginas/Usuario"
 import Admin from "./Paginas/Admin"
+import Noticias from "./Paginas/Noticias"
 import Contra from "./Paginas/Contra"
 
 createRoot(document.getElementById('root')!).render(
@@ -29,6 +30,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/users" element={<Usuario />} />
         <Route path="/games" element={<Admin />} />
+        <Route path="/news" element={<Noticias />} />
         <Route path="cambio-contra" element={<Contra />} />
       </Routes>
     </BrowserRouter>
