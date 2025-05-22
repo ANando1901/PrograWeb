@@ -18,22 +18,18 @@ export default function ModalAgregar({ show, onHide }: ModalAgregarJuego) {
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
-    // prueba
     console.log({ titulo1, description, precio });
 
-    // aca poner que agregue a la lista de juegos
-    if (titulo1 != "" && description != "") {
+    if (titulo1 !== "" && description !== "") {
       ListaGames.push({
-        id: JSON.stringify(ListaGames.length +1),
+        id: JSON.stringify(ListaGames.length + 1),
         titulo: titulo1,
-        description: description,
-        precio: precio,
+        description,
+        precio,
       });
       onHide();
-    } 
+    }
   };
-
-  
 
   return (
     <Modal show={show} onHide={onHide} centered size="lg" backdrop="static">
@@ -61,18 +57,57 @@ export default function ModalAgregar({ show, onHide }: ModalAgregarJuego) {
             label="Precio"
             type="number"
             id="precio"
-            value={""+precio}
+            value={"" + precio}
             onChange={(e) => setPrecio(Number(e.currentTarget.value))}
           />
-          <SubmitButton label="Crear"/>
+
+          <label className="form-label mt-3">Género:</label>
+          <select className="form-control mb-2">
+            <option value="">Seleccione un género</option>
+            <option value="Acción">Acción</option>
+            <option value="Aventura">Aventura</option>
+            <option value="RPG">RPG</option>
+            <option value="Estrategia">Estrategia</option>
+          </select>
+
+          <label className="form-label mt-3">Plataformas:</label>
+          <div className="checkbox-group mb-3">
+            <label className="me-3"><input type="checkbox" /> PC</label>
+            <label className="me-3"><input type="checkbox" /> PS5</label>
+            <label className="me-3"><input type="checkbox" /> Xbox Series X</label>
+            <label><input type="checkbox" /> Nintendo Switch</label>
+          </div>
+
+          <FormInput
+            label="Descuento"
+            type="number"
+            id="descuento"
+            value=""
+            onChange={() => {}}
+          />
+
+          <FormInput
+            label="Fecha de lanzamiento"
+            type="date"
+            id="fecha"
+            value=""
+            onChange={() => {}}
+          />
+
+          <label className="form-label mt-3">Imagen:</label>
+          <input className="form-control" type="file" disabled />
+
+          <div className="mt-4">
+            <SubmitButton label="Crear" />
+          </div>
         </form>
       </Modal.Body>
+
       <Modal.Footer className="bg-dark text-white">
-            {(()=> {
-              if (titulo1 == "" || description == "") {
-              return <button type="button" className="btn btn-danger"> Faltan datos </button>;
-            }})()}
-          </Modal.Footer>
+        {(titulo1 === "" || description === "") && (
+          <button type="button" className="btn btn-danger">Faltan datos</button>
+        )}
+      </Modal.Footer>
     </Modal>
   );
 }
