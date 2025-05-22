@@ -44,7 +44,6 @@ export default function ModalEditar({ show, onHide, juego }: ModalEditarJuego) {
 
       <Modal.Body className="bg-dark text-white">
         <form onSubmit={handleSubmit}>
-          {/* FUNCIONALES */}
           <FormInput
             label="Titulo"
             type="text"
@@ -67,7 +66,6 @@ export default function ModalEditar({ show, onHide, juego }: ModalEditarJuego) {
             onChange={(e) => setPrecio(Number(e.currentTarget.value))}
           />
 
-          {/* VISUALES */}
           <label className="form-label mt-3">Género:</label>
           <select className="form-control mb-2" disabled>
             <option>Seleccione un género</option>
